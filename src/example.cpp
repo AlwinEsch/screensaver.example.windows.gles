@@ -75,7 +75,7 @@ void CExampleTriangle::Render()
     float position[3]; // Position x, y, z
     float color[4]; // Color r, g, b, a
   } vertices[3] = {
-    { { -0.5f, -0.5f, 0.0f }, { 1.0f, 0.0f, 1.0f, 1.0f } },
+    { { -0.5f, -0.5f, 0.0f }, { 1.0f, 0.0f, 0.0f, 1.0f } },
     { {  0.5f, -0.5f, 0.0f }, { 0.0f, 1.0f, 0.0f, 1.0f } },
     { {  0.0f,  0.5f, 0.0f }, { 0.0f, 0.0f, 1.0f, 1.0f } }
   };

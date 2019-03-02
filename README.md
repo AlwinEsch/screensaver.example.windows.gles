@@ -1,6 +1,9 @@
 # screensaver.example.windows.gles
 ***Example addon about using Open GL | ES in Kodi on Windows***
 
+[![Build Status](https://travis-ci.org/xbmc/screensaver.example.windows.gles.svg?branch=master)](https://travis-ci.org/xbmc/screensaver.example.windows.gles)
+[![Build Status](https://ci.appveyor.com/api/projects/status/github/xbmc/screensaver.example.windows.gles?svg=true)](https://ci.appveyor.com/project/xbmc/screensaver-example-windows-gles)
+
 This addon shows how [Open Graphics Library for Embedded Systems (OpenGL ES)](https://en.wikipedia.org/wiki/OpenGL_ES) can be used in Kodi on Windows.
 It is therefore not to be regarded as a regular addon, as it only displays a fixed triangle and nothing else. Furthermore, this only serves to how this interface can be integrated into an addon. This is achieved by using [Google Angle](https://github.com/google/angle).
 

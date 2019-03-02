@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<addon
+  id="screensaver.example.windows.gles"
+  version="1.0.0"
+  name="OpenGLES on Windows Example"
+  provider-name="Team Kodi">
+  <requires>@ADDON_DEPENDS@</requires>
+  <extension
+    point="xbmc.ui.screensaver"
+    library_@PLATFORM@="@LIBRARY_FILENAME@"/>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">Example addon</summary>
+    <description lang="en">Example addon about using Open GL | ES in Kodi on Windows</description>
+    <platform>@PLATFORM@</platform>
+  </extension>
+</addon>

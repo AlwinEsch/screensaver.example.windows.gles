@@ -1,32 +1,41 @@
-# Prerequisites
-*.d
+# build artifacts
+build/
+screensaver.*/addon.xml
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
+# Debian build files
+debian/changelog
+debian/files
+debian/*.log
+debian/*.substvars
+debian/.debhelper/
+debian/tmp/
+debian/kodi-screensaver-*/
+obj-x86_64-linux-gnu/
 
-# Precompiled Headers
-*.gch
-*.pch
+# commonly used editors
+# vim
+*.swp
 
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
+# Eclipse
+*.project
+*.cproject
+.classpath
+*.sublime-*
+.settings/
 
-# Fortran module files
-*.mod
-*.smod
+# KDevelop 4
+*.kdev4
 
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
+# gedit
+*~
 
-# Executables
-*.exe
-*.out
-*.app
+# CLion
+/.idea
+
+# clion
+.idea/
+
+# KDev
+*.kdev4
+
+.vs/

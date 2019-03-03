@@ -18,8 +18,7 @@
 if(WIN32)
   find_package(kodi-angle REQUIRED)
   set(OPENGLES_LIBRARIES kodi::angle::libGLESv2
-                         kodi::angle::libEGL
-                         d3dcompiler.lib)
+                         kodi::angle::libEGL)
   set(OPENGLES_FOUND ${kodi-angle_FOUND})
   set(OPENGLES_DEFINITIONS -DHAS_ANGLE -DHAS_GLES=3)
 else()

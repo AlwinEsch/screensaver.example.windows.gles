@@ -243,6 +243,7 @@ if(WINDOWS_ANY)
   if(WINDOWS_STORE)
     add_library(angle_renderer_winrt INTERFACE)
     target_sources(angle_renderer_winrt INTERFACE $<BUILD_INTERFACE:${libangle_d3d11_winrt_sources}>)
+    target_link_libraries(angle_renderer_winrt INTERFACE d3dcompiler.lib)
     add_library(angle::renderer::winrt ALIAS angle_renderer_winrt)
   endif()
 
@@ -257,17 +258,19 @@ if(WINDOWS_ANY)
   endif()
 
   ## D3D11 Base renderer
-  add_library(angle_renderer_d3d INTERFACE)
-  target_sources(angle_renderer_d3d INTERFACE $<BUILD_INTERFACE:${libangle_d3d_shared_sources}>
-                                              $<BUILD_INTERFACE:${libangle_d3d11_sources}>
-                                              $<BUILD_INTERFACE:${libangle_d3d11_win32_sources}>
-                                              $<BUILD_INTERFACE:${libangle_d3d11_blit_shaders}>)
-  target_compile_definitions(angle_renderer_d3d INTERFACE
-    -DANGLE_ENABLE_D3D11
-    "-DANGLE_PRELOADED_D3DCOMPILER_MODULE_NAMES={ \"d3dcompiler_47.dll\", \"d3dcompiler_46.dll\", \"d3dcompiler_43.dll\" }")
-  target_link_libraries(angle_renderer_d3d INTERFACE d3d11.lib dxguid.lib)
-  add_library(angle::renderer::d3d ALIAS angle_renderer_d3d)
-  list(APPEND ANGLE_DEPEND_LIBRARIES d3d11.lib dxguid.lib)
+  if(ANGLE_ENABLE_D3D11)
+    add_library(angle_renderer_d3d INTERFACE)
+    target_sources(angle_renderer_d3d INTERFACE $<BUILD_INTERFACE:${libangle_d3d_shared_sources}>
+                                                $<BUILD_INTERFACE:${libangle_d3d11_sources}>
+                                                $<BUILD_INTERFACE:${libangle_d3d11_win32_sources}>
+                                                $<BUILD_INTERFACE:${libangle_d3d11_blit_shaders}>)
+    target_compile_definitions(angle_renderer_d3d INTERFACE
+      -DANGLE_ENABLE_D3D11
+      "-DANGLE_PRELOADED_D3DCOMPILER_MODULE_NAMES={ \"d3dcompiler_47.dll\", \"d3dcompiler_46.dll\", \"d3dcompiler_43.dll\" }")
+    target_link_libraries(angle_renderer_d3d INTERFACE d3d11.lib dxguid.lib)
+    add_library(angle::renderer::d3d ALIAS angle_renderer_d3d)
+    list(APPEND ANGLE_DEPEND_LIBRARIES d3d11.lib dxguid.lib)
+  endif()
 endif()
 
 ## Core libANGLE library

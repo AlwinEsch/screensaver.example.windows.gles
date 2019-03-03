@@ -47,15 +47,8 @@ private:
 
 bool CExampleTriangle::Start()
 {
-#if HAS_GL
-  std::string fraqShader = kodi::GetAddonPath("resources/shaders/GL/glsl.frag");
-  std::string vertShader = kodi::GetAddonPath("resources/shaders/GL/glsl.vert");
-#elif HAS_GLES
-  std::string fraqShader = kodi::GetAddonPath("resources/shaders/GLES/glsl.frag");
-  std::string vertShader = kodi::GetAddonPath("resources/shaders/GLES/glsl.vert");
-#else
-  #error "This can be only used on GL or GLES and required define not set!"
-#endif
+  std::string fraqShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/glsl.frag");
+  std::string vertShader = kodi::GetAddonPath("resources/shaders/" GL_TYPE_STRING "/glsl.vert");
   if (!LoadShaderFiles(vertShader, fraqShader) || !CompileAndLink())
     return false;
 
